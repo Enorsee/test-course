@@ -296,7 +296,7 @@ std::string cfg_to_dot(const CFG& cfg) {
         } else if (node.id == cfg.exit) {
             shape = "doublecircle";
         }
-        stream << "  " << node.id << " [label=\"" << escape_dot_label(node.label)
+        stream << "  " << node.id << " [label=\"(" << node.id << ") " << escape_dot_label(node.label)
                << "\", shape=" << shape << "];\n";
     }
     for (const CFGEdge& edge : cfg.edges) {
