@@ -5,7 +5,7 @@
 
 int main() {
     cfglab::CFG cfg;
-    cfg.function_name = "demo";
+    cfg.function_name = "manual_demo";
     cfg.entry = 1;
     cfg.exit = 6;
     cfg.nodes = {
@@ -27,12 +27,12 @@ int main() {
 
     const auto report = cfglab::compute_prime_path_coverage(cfg, 3);
 
-    std::cout << "Prime paths for demo:\n";
+    std::cout << "Prime paths for manual_demo:\n";
     for (const auto& path : report.prime_paths) {
         std::cout << "  " << cfglab::path_to_string(path) << '\n';
     }
 
-    std::cout << "\nSelected test paths for demo:\n";
+    std::cout << "\nSelected test paths:\n";
     for (const auto& path : report.selected_test_paths) {
         std::cout << "  " << cfglab::path_to_string(path) << '\n';
     }
