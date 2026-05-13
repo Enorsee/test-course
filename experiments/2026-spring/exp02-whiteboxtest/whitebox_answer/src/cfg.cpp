@@ -143,7 +143,7 @@ class CFGBuilderImpl {
         connect(body.continues, condition);
 
         result.normal.push_back({condition, "F"});
-        result.breaks = body.breaks;
+        result.normal.insert(result.normal.end(), body.breaks.begin(), body.breaks.end());
         return result;
     }
 
@@ -157,7 +157,7 @@ class CFGBuilderImpl {
         connect(body.continues, condition);
         add_edge(condition, body.entry, "T");
         result.normal.push_back({condition, "F"});
-        result.breaks = body.breaks;
+        result.normal.insert(result.normal.end(), body.breaks.begin(), body.breaks.end());
         return result;
     }
 
@@ -196,7 +196,7 @@ class CFGBuilderImpl {
         }
 
         result.normal.push_back({condition, "F"});
-        result.breaks = body.breaks;
+        result.normal.insert(result.normal.end(), body.breaks.begin(), body.breaks.end());
         return result;
     }
 
